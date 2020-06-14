@@ -19,19 +19,14 @@ class Mutation :
     
     # Runs mutation according to rate and type
     def RunMutation(self,chromosome) :
-        mutated = None
         length = Chromosome.length
-        targetChromosome = copy.deepcopy(chromosome)
         if self.canMutate() :
             if self.typeOfMutation == 1 :
-                mutated = self.Mutation1(targetChromosome,length)
+                self.Mutation1(chromosome,length)
             elif self.typeOfMutation == 2 :
-                mutated = self.Mutation2(targetChromosome,length)
+                self.Mutation2(chromosome,length)
             elif self.typeOfMutation == 3 :
-                mutated = self.Mutation3(targetChromosome,length)
-        else :
-            mutated = chromosome
-        return mutated
+                self.Mutation3(chromosome,length)
     
     # Swap mutation
     def Mutation1(self,chromosome,length) :
@@ -45,7 +40,6 @@ class Mutation :
         temp = chromosome.gensList[firstRandomIndex]
         chromosome.gensList[firstRandomIndex] = chromosome.gensList[secondRandomIndex]
         chromosome.gensList[secondRandomIndex] = temp
-        return chromosome
 
     # Insert mutation
     def Mutation2(self,chromosome,length) :
@@ -69,7 +63,6 @@ class Mutation :
             else :
                 chromosome.gensList[index] = temp[tempIndex]
                 tempIndex += 1
-        return chromosome
     
     # Inversion mutation
     def Mutation3(self,chromosome,length) :
@@ -98,4 +91,3 @@ class Mutation :
             for index in range(firstRandomIndex,secondRandomIndex + 1) :
                 chromosome.gensList[index] = temp[tempIndex]
                 tempIndex -= 1
-        return chromosome

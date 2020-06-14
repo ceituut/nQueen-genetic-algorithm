@@ -6,8 +6,6 @@ from RecombinationModule import Recombination
 
 class Generation :
     populationSize = int()
-    selectedParents = []
-    offsprings = []
 
     # Initialization
     def __init__(self) :
@@ -17,6 +15,7 @@ class Generation :
         self.bestFitness = float(0)
         self.totalFitness = float(0)
         self.averageFitness = float(0)
+        self.selectedList = []
 
     # Makes Unique initial population
     def Initialization(self) :
@@ -86,41 +85,37 @@ class Generation :
             randomValue = random.random()
             for thisPerson in range(Generation.populationSize) :
                 if randomValue <= personPortionList[thisPerson] :
-                    Generation.selectedParents.append( self.generation[thisPerson] )
+                    self.selectedList.append( self.generation[thisPerson] )
                     break
 
     # Recombinates selected parents and adds them to offsprings
     def RecombinateParents(self,typeOfCrossover,crossoverRate) :
-        children = []
         chromosome1 = None
         chromosome2 = None
-        numberOfParents = len(Generation.selectedParents) 
+        mateOfLast = None
         recombinationRequest = Recombination(typeOfCrossover,crossoverRate)
+        numberOfParents = len(self.selectedList)
+        if numberOfParents % 2 != 0 :
+            mateOfLast = copy.deepcopy(self.selectedList[numberOfParents-2])
         for index in range(0,numberOfParents,2) :
             if index < numberOfParents - 1 :
-                chromosome1 = copy.deepcopy(Generation.selectedParents[index]) 
-                chromosome2 = copy.deepcopy(Generation.selectedParents[index+1]) 
-                children = recombinationRequest.RunRecombination(chromosome1,chromosome2)
-                Generation.offsprings.extend(children) 
+                chromosome1 = copy.deepcopy(self.selectedList[index]) 
+                chromosome2 = copy.deepcopy(self.selectedList[index+1]) 
+                recombinationRequest.RunRecombination(chromosome1,chromosome2)
+                self.selectedList[index] = chromosome1
+                self.selectedList[index+1] = chromosome2
             elif index == numberOfParents - 1 :
-                chromosome1 = copy.deepcopy(Generation.selectedParents[index-1]) 
-                chromosome2 = copy.deepcopy(Generation.selectedParents[index]) 
-                children = recombinationRequest.RunRecombination(chromosome1,chromosome2)
-                Generation.offsprings.extend(children) 
-            else :
-                break
-        Generation.selectedParents.clear()
-        del recombinationRequest
+                chromosome1 = mateOfLast 
+                chromosome2 = copy.deepcopy(self.selectedList[index]) 
+                recombinationRequest.RunRecombination(chromosome1,chromosome2)
 
     # Mutates offsprings
     def MutateOffsprings(self,typeOfMutation,mutationRate) :
         mutated = None
-        offspringsSize = len(Generation.offsprings)
+        offspringsSize = len(self.selectedList)
         mutationRequest = Mutation(typeOfMutation,mutationRate)
         for index in range(offspringsSize) :
-            mutated = mutationRequest.RunMutation(Generation.offsprings[index])
-            Generation.offsprings[index] = copy.deepcopy(mutated) 
-        del mutationRequest
+            mutationRequest.RunMutation(self.selectedList[index]) 
 
     # Sorts generation
     def SortGeneration(self) :
@@ -137,6 +132,6 @@ class Generation :
         targetIndex = int(transformRate * Generation.populationSize)
         self.numberOfGeneration += 1
         for index in range(targetIndex) :
-            self.generation[index] = copy.deepcopy(Generation.offsprings[index]) 
-        Generation.offsprings.clear()
+            self.generation[index] = copy.deepcopy(self.selectedList[index]) 
+        self.selectedList.clear()
   
