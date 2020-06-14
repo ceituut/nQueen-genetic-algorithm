@@ -1,8 +1,8 @@
 import random
 import copy
 from ChromosomeModule import Chromosome
-from MutationModule import Mutation
-from RecombinationModule import Recombination
+import MutationModule
+import RecombinationModule
 
 class Generation :
     populationSize = int()
@@ -93,7 +93,6 @@ class Generation :
         chromosome1 = None
         chromosome2 = None
         mateOfLast = None
-        recombinationRequest = Recombination(typeOfCrossover,crossoverRate)
         numberOfParents = len(self.selectedList)
         if numberOfParents % 2 != 0 :
             mateOfLast = copy.deepcopy(self.selectedList[numberOfParents-2])
@@ -101,21 +100,19 @@ class Generation :
             if index < numberOfParents - 1 :
                 chromosome1 = copy.deepcopy(self.selectedList[index]) 
                 chromosome2 = copy.deepcopy(self.selectedList[index+1]) 
-                recombinationRequest.RunRecombination(chromosome1,chromosome2)
+                RecombinationModule.RunRecombination(chromosome1,chromosome2,typeOfCrossover,crossoverRate)
                 self.selectedList[index] = chromosome1
                 self.selectedList[index+1] = chromosome2
             elif index == numberOfParents - 1 :
                 chromosome1 = mateOfLast 
                 chromosome2 = copy.deepcopy(self.selectedList[index]) 
-                recombinationRequest.RunRecombination(chromosome1,chromosome2)
+                RecombinationModule.RunRecombination(chromosome1,chromosome2,typeOfCrossover,crossoverRate)
 
     # Mutates offsprings
     def MutateOffsprings(self,typeOfMutation,mutationRate) :
-        mutated = None
         offspringsSize = len(self.selectedList)
-        mutationRequest = Mutation(typeOfMutation,mutationRate)
         for index in range(offspringsSize) :
-            mutationRequest.RunMutation(self.selectedList[index]) 
+            MutationModule.RunMutation(self.selectedList[index],typeOfMutation,mutationRate) 
 
     # Sorts generation
     def SortGeneration(self) :
