@@ -11,7 +11,6 @@ class Strategy :
     # constructor 
     def __init__(self,strategyName,parentSelector,mutationRate,crossoverRate,typeOfCrossover,typeOfMutation) :
         self.name = strategyName
-        self.parentSelector = parentSelector
         self.mutationRate = mutationRate
         self.crossoverRate = crossoverRate
         self.typeOfMutation = int(typeOfMutation)
@@ -19,6 +18,8 @@ class Strategy :
         Chromosome.length = Strategy.numberOfQueens
         Generation.populationSize = Strategy.populationSize
         self.currentGeneration = Generation()
+        self.parentSelector = parentSelector
+        parentSelector.source = self.currentGeneration
         self.reportObject = Report(Strategy.generatingLimit)
 
     # Genetic Algorithm termination check 

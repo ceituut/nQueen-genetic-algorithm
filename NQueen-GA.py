@@ -52,8 +52,6 @@ Report.CreateExcellFile(excellFileName)
 RouletWheelSelector = ParentSelectionModule.Rouletwheel(0.6)
 
 
-
-
 # Run Genetic Algorithm according to strategy
     # Run GA for Strategy1
 Strategy1 = Strategy("Strategy1",RouletWheelSelector,0.9 , 0.98 , 1 , 1)

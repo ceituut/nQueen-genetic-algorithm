@@ -67,7 +67,7 @@ class Generation :
     # Selects parents according to strategy of selection
     def SelectParent(self,parentSelector) :
         self.SortGeneration()
-        parentSelector.Select()
+        self.selectedList = parentSelector.Select(Generation.populationSize)
 
     # Recombinates selected parents and adds them to offsprings
     def RecombinateParents(self,typeOfCrossover,crossoverRate) :
