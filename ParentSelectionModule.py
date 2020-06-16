@@ -9,7 +9,7 @@ class ParentSelection(abc.ABC) :
 
     # Selects parents according to rate of selection
     @abc.abstractmethod
-    def Select(self,populationSize) :
+    def Select(self) :
         pass
 
 
@@ -36,7 +36,8 @@ class Rouletwheel(ParentSelection) :
         return allPortions
 
     # Rouletwheel parent selection according to portions 
-    def Select(self,populationSize) :
+    def Select(self) :
+        populationSize = len(self.source.generation)
         selectionSize = int(self.selectionRate * populationSize)
         personPortionList = self.GetPortions(populationSize)
         for index in range(selectionSize) :

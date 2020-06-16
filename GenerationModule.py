@@ -1,7 +1,5 @@
 import copy
 from ChromosomeModule import Chromosome
-import MutationModule
-import RecombinationModule
 
 class Generation :
     populationSize = int()
@@ -67,10 +65,10 @@ class Generation :
     # Selects parents according to strategy of selection
     def SelectParent(self,parentSelector) :
         self.SortGeneration()
-        self.selectedList = parentSelector.Select(Generation.populationSize)
+        self.selectedList = parentSelector.Select()
 
     # Recombinates selected parents and adds them to offsprings
-    def RecombinateParents(self,typeOfCrossover,crossoverRate) :
+    def RecombinateParents(self,recombinator) :
         chromosome1 = None
         chromosome2 = None
         mateOfLast = None
@@ -81,19 +79,19 @@ class Generation :
             if index < numberOfParents - 1 :
                 chromosome1 = copy.deepcopy(self.selectedList[index]) 
                 chromosome2 = copy.deepcopy(self.selectedList[index+1]) 
-                RecombinationModule.RunRecombination(chromosome1,chromosome2,typeOfCrossover,crossoverRate)
+                recombinator.RunRecombination(chromosome1,chromosome2)
                 self.selectedList[index] = chromosome1
                 self.selectedList[index+1] = chromosome2
             elif index == numberOfParents - 1 :
                 chromosome1 = mateOfLast 
                 chromosome2 = copy.deepcopy(self.selectedList[index]) 
-                RecombinationModule.RunRecombination(chromosome1,chromosome2,typeOfCrossover,crossoverRate)
+                recombinator.RunRecombination(chromosome1,chromosome2)
 
     # Mutates offsprings
-    def MutateOffsprings(self,typeOfMutation,mutationRate) :
+    def MutateOffsprings(self,mutator) :
         offspringsSize = len(self.selectedList)
         for index in range(offspringsSize) :
-            MutationModule.RunMutation(self.selectedList[index],typeOfMutation,mutationRate) 
+            mutator.RunMutation(self.selectedList[index]) 
     
     # Replaces offsprings to generation
     def SurvivorSelection(self,transformRate) :

@@ -65,9 +65,10 @@ class Report :
             self.totalAverageList[columnIndex] /= numberOfRuns
 
     # Write reports to excell file and shows some result
-    def WriteReport(self,strategyName) :
+    def WriteReport(self,strategy) :
         self.ShowBestChromosome()
-        print(strategyName)
+        print(strategy.name)
+        print(strategy.description)
         print("Best Fitness List of all generations : ")
         print(self.totalBestList)
         print("")
@@ -75,7 +76,7 @@ class Report :
         # print("Average Fitness List of all generations : ")
         # print(self.totalAverageList)
         Report.numberOfReport += 1
-        self.WriteToExcell(strategyName,self.totalBestList)
+        self.WriteToExcell(strategy.name,self.totalBestList)
     
     # Fills a list with it's final value
     def FillList(self,List) :
