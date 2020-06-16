@@ -1,4 +1,3 @@
-import random
 import copy
 from ChromosomeModule import Chromosome
 import MutationModule
@@ -55,38 +54,20 @@ class Generation :
                 isGoal = True
         return isGoal
 
-    # Gets portion for each individual
-    def GetPortions(self,populationSize) :
-        allPortions = []
-        portion = 0
-        endOfPortion = 0
+    # Sorts generation
+    def SortGeneration(self) :
+        temp = None
+        for firstIndex in range(Generation.populationSize) :
+            for secondIndex in range(Generation.populationSize) :
+                if self.generation[firstIndex].fitness < self.generation[secondIndex].fitness :
+                    temp = copy.deepcopy(self.generation[secondIndex])
+                    self.generation[secondIndex] = copy.deepcopy(self.generation[firstIndex])
+                    self.generation[firstIndex] = copy.deepcopy(temp)
+                    
+    # Selects parents according to strategy of selection
+    def SelectParent(self,parentSelector) :
         self.SortGeneration()
-        for thisPerson in range(populationSize) :
-            portion = self.LinearRanking(thisPerson)
-            allPortions.append( endOfPortion + portion )
-            endOfPortion = allPortions[thisPerson]
-        return allPortions
-
-    # Sets probability of selection according to rank of individual
-    def LinearRanking(self,rank) :
-        S = 2
-        N = Generation.populationSize
-        probability = float()
-        probability = 2 * rank * (S-1)
-        probability /= (N * (N-1)) 
-        probability += ((2-S)/N)
-        return probability
-
-    # Rouletwheel parent selection according to portions 
-    def SelectParent(self,transformRate) :
-        numberOfParents = int(transformRate * Generation.populationSize)
-        personPortionList = self.GetPortions(Generation.populationSize)
-        for index in range(numberOfParents) :
-            randomValue = random.random()
-            for thisPerson in range(Generation.populationSize) :
-                if randomValue <= personPortionList[thisPerson] :
-                    self.selectedList.append( self.generation[thisPerson] )
-                    break
+        parentSelector.Select()
 
     # Recombinates selected parents and adds them to offsprings
     def RecombinateParents(self,typeOfCrossover,crossoverRate) :
@@ -113,19 +94,9 @@ class Generation :
         offspringsSize = len(self.selectedList)
         for index in range(offspringsSize) :
             MutationModule.RunMutation(self.selectedList[index],typeOfMutation,mutationRate) 
-
-    # Sorts generation
-    def SortGeneration(self) :
-        temp = None
-        for firstIndex in range(Generation.populationSize) :
-            for secondIndex in range(Generation.populationSize) :
-                if self.generation[firstIndex].fitness < self.generation[secondIndex].fitness :
-                    temp = copy.deepcopy(self.generation[secondIndex])
-                    self.generation[secondIndex] = copy.deepcopy(self.generation[firstIndex])
-                    self.generation[firstIndex] = copy.deepcopy(temp)
     
-    # Transforms offsprings to generation
-    def TransformOffsprings(self,transformRate) :
+    # Replaces offsprings to generation
+    def SurvivorSelection(self,transformRate) :
         targetIndex = int(transformRate * Generation.populationSize)
         self.numberOfGeneration += 1
         for index in range(targetIndex) :

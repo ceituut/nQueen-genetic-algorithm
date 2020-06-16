@@ -1,6 +1,7 @@
 import random
 import copy
 import matplotlib.pyplot as plt
+import ParentSelectionModule
 from StrategyModule import Strategy
 from ReportModule import Report
 
@@ -47,41 +48,47 @@ Report.CreateExcellFile(excellFileName)
 
 
 
+# Creating parent selection 
+RouletWheelSelector = ParentSelectionModule.Rouletwheel(0.6)
+
+
+
+
 # Run Genetic Algorithm according to strategy
     # Run GA for Strategy1
-Strategy1 = Strategy("Strategy1",0.9 , 0.98 , 1 , 1)
+Strategy1 = Strategy("Strategy1",RouletWheelSelector,0.9 , 0.98 , 1 , 1)
 RunStrategy(Strategy1,numberOfRuns)
 
     # Run GA for Strategy2
-Strategy2 = Strategy("Strategy2",0.9 , 0.98 , 1 , 2)
+Strategy2 = Strategy("Strategy2",RouletWheelSelector,0.9 , 0.98 , 1 , 2)
 RunStrategy(Strategy2,numberOfRuns)
 
     # Run GA for Strategy3
-Strategy3 = Strategy("Strategy3",0.90 , 0.98 , 1 , 3)
+Strategy3 = Strategy("Strategy3",RouletWheelSelector,0.90 , 0.98 , 1 , 3)
 RunStrategy(Strategy3,numberOfRuns)
 
     # Run GA for Strategy4
-Strategy4 = Strategy("Strategy4",0.9 , 0.98 , 2 , 1)
+Strategy4 = Strategy("Strategy4",RouletWheelSelector,0.9 , 0.98 , 2 , 1)
 RunStrategy(Strategy4,numberOfRuns)
 
     # Run GA for Strategy5
-Strategy5 = Strategy("Strategy5",0.9 , 0.98 , 2 , 2)
+Strategy5 = Strategy("Strategy5",RouletWheelSelector,0.9 , 0.98 , 2 , 2)
 RunStrategy(Strategy5,numberOfRuns)
 
     # Run GA for Strategy6
-Strategy6 = Strategy("Strategy6",0.9 , 0.98 , 2 , 3)
+Strategy6 = Strategy("Strategy6",RouletWheelSelector,0.9 , 0.98 , 2 , 3)
 RunStrategy(Strategy6,numberOfRuns)
 
     # Run GA for Strategy7
-Strategy7 = Strategy("Strategy7",0.9 , 0.98 , 3 , 1)
+Strategy7 = Strategy("Strategy7",RouletWheelSelector,0.9 , 0.98 , 3 , 1)
 RunStrategy(Strategy7,numberOfRuns)
 
     # Run GA for Strategy8
-Strategy8 = Strategy("Strategy8",0.9 , 0.98 , 3 , 2)
+Strategy8 = Strategy("Strategy8",RouletWheelSelector,0.9 , 0.98 , 3 , 2)
 RunStrategy(Strategy8,numberOfRuns)
 
     # Run GA for Strategy9
-Strategy9 = Strategy("Strategy9",0.9 , 0.98 , 3 , 3)
+Strategy9 = Strategy("Strategy9",RouletWheelSelector,0.9 , 0.98 , 3 , 3)
 RunStrategy(Strategy9,numberOfRuns)
 
 

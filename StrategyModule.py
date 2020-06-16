@@ -9,9 +9,9 @@ class Strategy :
     generatingLimit = int(0)
 
     # constructor 
-    def __init__(self,strategyName,mutationRate,crossoverRate,typeOfCrossover,typeOfMutation) :
+    def __init__(self,strategyName,parentSelector,mutationRate,crossoverRate,typeOfCrossover,typeOfMutation) :
         self.name = strategyName
-        self.transformRate = float(0.5)
+        self.parentSelector = parentSelector
         self.mutationRate = mutationRate
         self.crossoverRate = crossoverRate
         self.typeOfMutation = int(typeOfMutation)
@@ -39,9 +39,9 @@ class Strategy :
         self.currentGeneration.EvaluateGeneration()
         self.reportObject.AppendReport(self.currentGeneration)
         while self.IsTerminated() != True :
-            self.currentGeneration.SelectParent(self.transformRate)
+            self.currentGeneration.SelectParent(self.parentSelector)
             self.currentGeneration.RecombinateParents(self.typeOfCrossover,self.crossoverRate)
             self.currentGeneration.MutateOffsprings(self.typeOfMutation,self.mutationRate)
-            self.currentGeneration.TransformOffsprings(self.transformRate)
+            self.currentGeneration.SurvivorSelection(self.parentSelector.selectionRate)
             self.currentGeneration.EvaluateGeneration()
             self.reportObject.AppendReport(self.currentGeneration)
