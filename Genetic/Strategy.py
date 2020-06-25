@@ -1,6 +1,6 @@
-from ChromosomeModule import Chromosome
-from GenerationModule import Generation
-from ReportModule import Report
+from .Chromosome import Chromosome
+from .Generation import Generation
+from .Report import Report
 
 class Strategy :
     # problem states 

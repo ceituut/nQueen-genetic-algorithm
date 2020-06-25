@@ -1,5 +1,5 @@
 import xlsxwriter
-from ChromosomeModule import Chromosome
+from .Chromosome import Chromosome
 
 class Report :
     workbook = None

@@ -1,11 +1,11 @@
 import random
 import copy
-import ParentSelectionModule
-import MutationModule
-import RecombinationModule
-from StrategyModule import Strategy
-from ReportModule import Report
-import matplotlib.pyplot as plt
+from Genetic.Strategy import Strategy
+from Genetic.Report import Report
+from Operations import ParentSelection
+from Operations import Mutation
+from Operations import Recombination
+import matplotlib.pyplot as ploter
 
 # Runs each strategy a specific number of times
 def RunStrategy(strategy,numberOfRuns) :
@@ -26,7 +26,7 @@ def RunStrategy(strategy,numberOfRuns) :
 def PlotOnDiagram(strategy) :
     generation = range(0,Strategy.generatingLimit)
     bestFitness = strategy.reportObject.totalBestList 
-    plt.plot(generation, bestFitness, label = strategy.name)   
+    ploter.plot(generation, bestFitness, label = strategy.name)   
 
 
 
@@ -51,21 +51,21 @@ Report.CreateExcellFile(excellFileName)
 
 
 # Creating parent selectors 
-RouletWheelSelector = ParentSelectionModule.Rouletwheel(0.6)
+RouletWheelSelector = ParentSelection.Rouletwheel(0.6)
 
 
 
 # Creating mutation makers 
-swapMutation = MutationModule.Swap(0.9)
-insertMutation = MutationModule.Insert(0.9)
-inversionMutation = MutationModule.Inversion(0.9)
+swapMutation = Mutation.Swap(0.9)
+insertMutation = Mutation.Insert(0.9)
+inversionMutation = Mutation.Inversion(0.9)
 
 
 
 # Creating recombination makers 
-randomPointCrossOver = RecombinationModule.RandomPointCrossOver(0.98)
-halfPointCrossOver = RecombinationModule.HalfPointCrossOver(0.98)
-OrderOneCrossOver = RecombinationModule.OrderOneCrossOver(0.98)
+randomPointCrossOver = Recombination.RandomPointCrossOver(0.98)
+halfPointCrossOver = Recombination.HalfPointCrossOver(0.98)
+OrderOneCrossOver = Recombination.OrderOneCrossOver(0.98)
 
 
 
@@ -130,8 +130,8 @@ RunStrategy(Strategy9,numberOfRuns)
     # Save excell file
 Report.SaveExcellFile()
     # Show diagram
-plt.xlabel('Generation') 
-plt.ylabel('Best Fitness') 
-plt.title('NQueen-GA') 
-plt.legend() 
-plt.show() 
+ploter.xlabel('Generation') 
+ploter.ylabel('Best Fitness') 
+ploter.title('NQueen-GA') 
+ploter.legend() 
+ploter.show() 

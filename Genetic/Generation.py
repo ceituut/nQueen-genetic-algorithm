@@ -1,5 +1,5 @@
 import copy
-from ChromosomeModule import Chromosome
+from .Chromosome import Chromosome
 
 class Generation :
     populationSize = int()
