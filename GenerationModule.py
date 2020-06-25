@@ -18,6 +18,7 @@ class Generation :
     def Initialization(self) :
         index = 0
         person = None
+        self.generation.clear()
         while index < Generation.populationSize :
             person = Chromosome()
             if person not in self.generation :
@@ -52,15 +53,9 @@ class Generation :
                 isGoal = True
         return isGoal
 
-    # Sorts generation
+    # Sorts generation based on fitness
     def SortGeneration(self) :
-        temp = None
-        for firstIndex in range(Generation.populationSize) :
-            for secondIndex in range(Generation.populationSize) :
-                if self.generation[firstIndex].fitness < self.generation[secondIndex].fitness :
-                    temp = copy.deepcopy(self.generation[secondIndex])
-                    self.generation[secondIndex] = copy.deepcopy(self.generation[firstIndex])
-                    self.generation[firstIndex] = copy.deepcopy(temp)
+        self.generation.sort(key=lambda person: person.fitness)
                     
     # Selects parents according to strategy of selection
     def SelectParent(self,parentSelector) :
