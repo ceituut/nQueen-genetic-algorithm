@@ -22,7 +22,7 @@ pip install XlsxWriter
 ## Usage
 ### How can i create my own operations ?
 in Operations folder :
-* __Create Parent Selection Operation :__ You are able to create your own parent selection class inside ParentSelection.py   
+* Create Parent Selection Operation : You are able to create your own parent selection class inside ParentSelection.py   
 Your class should inherit form ParentSelection class and implement select() method.  
 ```python
 class ParentSelection(abc.ABC) :
@@ -43,7 +43,7 @@ class MyParentSelection(ParentSelection) :
         pass
 ```
 
-* __Create Recombination Operation :__ You are able to create your own Recombination class inside Recombination.py
+* Create Recombination Operation : You are able to create your own Recombination class inside Recombination.py
 Your class should inherit form Recombination class and implement CanRecombinate() and RunRecombination() methodes.
 ```python
 class Recombination(abc.ABC) :
@@ -70,7 +70,7 @@ class MyRecombination(Recombination) :
         pass
 ```
 
-* __Creatin Mutation Operation :__ You are able to create your own Mutaion class inside Mutation.py
+* Creatin Mutation Operation : You are able to create your own Mutaion class inside Mutation.py
 Your class should inherit form Mutation class and implement CanMutate() and RunMutation() methodes.
 ```python
 class Mutation(abc.ABC) :
@@ -146,7 +146,7 @@ __Attention :__ let numberOfRuns parameter have its own value and dont pass a nu
  
 ### How can i change problem ?
 You are able to change chromosome class and test your own permutation problem without any headache.
-__1.__ You should have this properties and methodes inside your own Chromosome class in Genetic folder :
+1. You should have this properties and methodes inside your own Chromosome class in Genetic folder :
 ```python
 class Chromosome :
     # Your length of Chromosome 
@@ -173,7 +173,7 @@ class Chromosome :
     def GenotypeToPhenoType(self) :
         pass
 ```
-__2.__ write your ShowBestChromosome() method inside Report.py in Genetic folder :
+2. write your ShowBestChromosome() method inside Report.py in Genetic folder :
 ```python
     # Shows best chromosome that has been found
     def ShowBestChromosome(self) :
