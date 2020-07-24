@@ -20,6 +20,12 @@ pip install XlsxWriter
 ``` 
 
 ## Usage
+Steps to test your own strategy :
+1. Create your own operation class
+2. Create operation objects
+3. Create your own strategy and pass your operation objects as parameters
+4. Run strategy and test it
+
 ### How can i create my own operations ?
 in Operations folder :
 * Create Parent Selection Operation : You are able to create your own parent selection class inside ParentSelection.py   
@@ -70,7 +76,7 @@ class MyRecombination(Recombination) :
         pass
 ```
 
-* Creatin Mutation Operation : You are able to create your own Mutaion class inside Mutation.py
+* Create Mutation Operation : You are able to create your own Mutaion class inside Mutation.py
 Your class should inherit form Mutation class and implement CanMutate() and RunMutation() methodes.
 ```python
 class Mutation(abc.ABC) :
@@ -127,7 +133,6 @@ for example :
 swapMutation = Mutation.Swap(0.9)
 ```
 
-### How can i test it ?
 in root folder inside main.py create your own strategy like this and pass related parameters :  
 ```python
 myStrategyObject = Strategy(MyParentSelectionObject,MyRecombinationObject,MyMutationObject)
