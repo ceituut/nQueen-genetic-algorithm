@@ -109,9 +109,9 @@ After creating operations , inside [main.py](/main.py) make object from your ope
 * __Create your parent selection object :__ 
 ```python
 myParentSelectionObject = ParentSelection.MyParentSelection()  
-```
-for example :    
+```    
 ```python
+# for example
 RouletWheelSelector = ParentSelection.Rouletwheel(0.6)  
 ```
 
@@ -119,8 +119,8 @@ RouletWheelSelector = ParentSelection.Rouletwheel(0.6)
 ```python
 myRecombinationObject = Recombination.MyRecombination()  
 ```
-for example :
 ```python
+# for example
 randomPointCrossOver = Recombination.RandomPointCrossOver(0.98)
 ```
 
@@ -128,20 +128,19 @@ randomPointCrossOver = Recombination.RandomPointCrossOver(0.98)
 ```python
 myMutationObject = Mutation.MyMutation()
 ```
-for example :
 ```python
+# for example
 swapMutation = Mutation.Swap(0.9)
 ```
-__Create your own strategy :__  
-inside [main.py](/main.py) create your own strategy like this and pass related parameters :  
+After all , create your own strategy like this and pass related parameters :  
 ```python
 myStrategyObject = Strategy(MyParentSelectionObject,MyRecombinationObject,MyMutationObject)
 myStrategyObject.name = "my strategy name"
 myStrategyObject.description = "my strategy description"
 RunStrategy(myStrategyObject,numberOfRuns)
 ``` 
-for example :
 ```python
+# for example
 Strategy1 = Strategy(RouletWheelSelector,randomPointCrossOver,swapMutation)
 Strategy1.name = "Strategy1"
 Strategy1.description = "RouletWheelSelector,randomPointCrossOver,swapMutation"
