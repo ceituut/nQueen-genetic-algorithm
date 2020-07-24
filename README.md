@@ -26,9 +26,9 @@ Steps to test your own strategy :
 3. Create your own strategy and pass your operation objects as parameters
 4. Run strategy and test it
 
-### How can i create my own operations ?
+### 🔷🔷 How can i create my own operations ?
 in [Operations](/Operations/) directory :
-* Create Parent Selection Operation : You are able to create your own parent selection class inside [ParentSelection.py](/Operations/ParentSelection.py)   
+* __Create Parent Selection Operation :__ You are able to create your own parent selection class inside [ParentSelection.py](/Operations/ParentSelection.py)   
 Your class should inherit form ParentSelection class and implement select() method.  
 ```python
 class ParentSelection(abc.ABC) :
@@ -49,7 +49,7 @@ class MyParentSelection(ParentSelection) :
         pass
 ```
 
-* Create Recombination Operation : You are able to create your own Recombination class inside [Recombination.py](/Operations/Recombination.py)
+* __Create Recombination Operation :__ You are able to create your own Recombination class inside [Recombination.py](/Operations/Recombination.py)
 Your class should inherit form Recombination class and implement CanRecombinate() and RunRecombination() methodes.
 ```python
 class Recombination(abc.ABC) :
@@ -76,7 +76,7 @@ class MyRecombination(Recombination) :
         pass
 ```
 
-* Create Mutation Operation : You are able to create your own Mutaion class inside [Mutation.py](/Operations/Mutation.py)
+* __Create Mutation Operation :__ You are able to create your own Mutaion class inside [Mutation.py](/Operations/Mutation.py)
 Your class should inherit form Mutation class and implement CanMutate() and RunMutation() methodes.
 ```python
 class Mutation(abc.ABC) :
@@ -104,7 +104,7 @@ class MyMutation(Mutation) :
         pass
 ```
 
-### How can i define my own strategy ?
+### 🔷🔷 How can i define my own strategy ?
 After creating operations , inside [main.py](/main.py) make object from your operation class. 
 * __Create your parent selection object :__ 
 ```python
@@ -132,7 +132,7 @@ for example :
 ```python
 swapMutation = Mutation.Swap(0.9)
 ```
-* __Create your own strategy :__  
+__Create your own strategy :__  
 inside [main.py](/main.py) create your own strategy like this and pass related parameters :  
 ```python
 myStrategyObject = Strategy(MyParentSelectionObject,MyRecombinationObject,MyMutationObject)
@@ -149,9 +149,9 @@ RunStrategy(Strategy1,numberOfRuns)
 ```
 __Attention :__ let numberOfRuns parameter have its own value and dont pass a number; because all strategies will test with same number of runs. 
  
-### How can i change problem ?
+### 🔷🔷 How can i change problem ?
 You are able to change chromosome class and test your own permutation problem without any headache.
-1. You should have this properties and methodes inside your own Chromosome class in [Genetic](/Genetic/) directory :
+1. __Create your own Chromosome :__ You should have this properties and methodes inside your own Chromosome class in [Genetic](/Genetic/) directory :
 ```python
 class Chromosome :
     # Your length of Chromosome 
@@ -178,7 +178,7 @@ class Chromosome :
     def GenotypeToPhenoType(self) :
         pass
 ```
-2. write your ShowBestChromosome() method inside Report.py in [Genetic](/Genetic/) directory :
+2. __Write your own function for printing chromosome :__ write your ShowBestChromosome() method inside Report.py in [Genetic](/Genetic/) directory :
 ```python
     # Shows best chromosome that has been found
     def ShowBestChromosome(self) :
