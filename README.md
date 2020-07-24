@@ -132,7 +132,7 @@ for example :
 ```python
 swapMutation = Mutation.Swap(0.9)
 ```
-
+* __Create your own strategy :__  
 in root folder inside main.py create your own strategy like this and pass related parameters :  
 ```python
 myStrategyObject = Strategy(MyParentSelectionObject,MyRecombinationObject,MyMutationObject)
