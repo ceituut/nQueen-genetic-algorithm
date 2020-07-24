@@ -20,7 +20,7 @@ pip install XlsxWriter
 ``` 
 
 ## Usage
-#### How can i create my own operations ?
+### How can i create my own operations ?
 in Operations folder :
 * __Create Parent Selection Operation :__ You are able to create your own parent selection class inside ParentSelection.py   
 Your class should inherit form ParentSelection class and implement select() method.  
@@ -98,9 +98,7 @@ class MyMutation(Mutation) :
         pass
 ```
 
-  
-    
-#### How can i define my own strategy ?
+### How can i define my own strategy ?
 After creating operations , in root folder inside main.py make object from your operation class. 
 * __Create your parent selection object :__ 
 ```python
@@ -129,9 +127,7 @@ for example :
 swapMutation = Mutation.Swap(0.9)
 ```
 
-
-  
-#### How can i test it ?
+### How can i test it ?
 in root folder inside main.py create your own strategy like this and pass related parameters :  
 ```python
 myStrategyObject = Strategy(MyParentSelectionObject,MyRecombinationObject,MyMutationObject)
@@ -147,12 +143,10 @@ Strategy1.description = "RouletWheelSelector,randomPointCrossOver,swapMutation"
 RunStrategy(Strategy1,numberOfRuns)
 ```
 __Attention :__ let numberOfRuns parameter have its own value and dont pass a number; because all strategies will test with same number of runs. 
-
-
-  
-#### How can i change problem ?
+ 
+### How can i change problem ?
 You are able to change chromosome class and test your own permutation problem without any headache.
-1. You should have this properties and methodes inside your own Chromosome class in Genetic folder :
+__1.__ You should have this properties and methodes inside your own Chromosome class in Genetic folder :
 ```python
 class Chromosome :
     # Your length of Chromosome 
@@ -179,27 +173,21 @@ class Chromosome :
     def GenotypeToPhenoType(self) :
         pass
 ```
-1. write your ShowBestChromosome() method inside Report.py in Genetic folder :
+__2.__ write your ShowBestChromosome() method inside Report.py in Genetic folder :
 ```python
     # Shows best chromosome that has been found
     def ShowBestChromosome(self) :
         pass
 ```
-
-
-  
+ 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.  
 
-
-  
 ## Thanks
-Unlimited thanks to God  
-Special thanks to my master [Dr. Siamak Sarmady](https://sarmady.com/siamak/)  
-hope you enjoy 🤗🌹  
+  Unlimited thanks to God   
+  Special thanks to my master [Dr. Siamak Sarmady](https://sarmady.com/siamak/) 
+  hope you enjoy 🤗🌹  
 
-
-  
 >:blossom:Imam Mahdi(As) declared :
 > we are aware of all your news 
 > and none of your actions is hidden from us.
