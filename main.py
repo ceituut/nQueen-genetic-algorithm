@@ -33,7 +33,7 @@ def PlotOnDiagram(strategy) :
 # Get initial inputs
     # Get number of Queens
 print("Enter number of Queens : ")
-Strategy.numberOfQueens = int(input())
+Strategy.chromosomeSize = int(input())
     # Get population size
 print("Enter population size : ")
 Strategy.populationSize = int(input())

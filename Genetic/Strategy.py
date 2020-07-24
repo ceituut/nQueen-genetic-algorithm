@@ -4,7 +4,7 @@ from .Report import Report
 
 class Strategy :
     # problem states 
-    numberOfQueens = int(0)
+    chromosomeSize = int(0)
     populationSize = int(0)
     generatingLimit = int(0)
 
@@ -14,7 +14,7 @@ class Strategy :
         self.description = None
         self.mutator = mutator
         self.recombinator = recombinator
-        Chromosome.length = Strategy.numberOfQueens
+        Chromosome.length = Strategy.chromosomeSize
         Generation.populationSize = Strategy.populationSize
         self.currentGeneration = Generation()
         self.parentSelector = parentSelector
