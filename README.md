@@ -28,7 +28,7 @@ Steps to test your own strategy :
 
 ### How can i create my own operations ?
 in [Operations](/Operations/) directory :
-* Create Parent Selection Operation : You are able to create your own parent selection class inside ParentSelection.py   
+* Create Parent Selection Operation : You are able to create your own parent selection class inside [ParentSelection.py](/Operations/ParentSelection.py)   
 Your class should inherit form ParentSelection class and implement select() method.  
 ```python
 class ParentSelection(abc.ABC) :
@@ -49,7 +49,7 @@ class MyParentSelection(ParentSelection) :
         pass
 ```
 
-* Create Recombination Operation : You are able to create your own Recombination class inside Recombination.py
+* Create Recombination Operation : You are able to create your own Recombination class inside [Recombination.py](/Operations/Recombination.py)
 Your class should inherit form Recombination class and implement CanRecombinate() and RunRecombination() methodes.
 ```python
 class Recombination(abc.ABC) :
@@ -76,7 +76,7 @@ class MyRecombination(Recombination) :
         pass
 ```
 
-* Create Mutation Operation : You are able to create your own Mutaion class inside Mutation.py
+* Create Mutation Operation : You are able to create your own Mutaion class inside [Mutation.py](/Operations/Mutation.py)
 Your class should inherit form Mutation class and implement CanMutate() and RunMutation() methodes.
 ```python
 class Mutation(abc.ABC) :
@@ -105,7 +105,7 @@ class MyMutation(Mutation) :
 ```
 
 ### How can i define my own strategy ?
-After creating operations , in root folder inside main.py make object from your operation class. 
+After creating operations , inside [main.py](/main.py) make object from your operation class. 
 * __Create your parent selection object :__ 
 ```python
 myParentSelectionObject = ParentSelection.MyParentSelection()  
@@ -151,7 +151,7 @@ __Attention :__ let numberOfRuns parameter have its own value and dont pass a nu
  
 ### How can i change problem ?
 You are able to change chromosome class and test your own permutation problem without any headache.
-1. You should have this properties and methodes inside your own Chromosome class in Genetic folder :
+1. You should have this properties and methodes inside your own Chromosome class in [Genetic](/Genetic/) directory :
 ```python
 class Chromosome :
     # Your length of Chromosome 
@@ -178,7 +178,7 @@ class Chromosome :
     def GenotypeToPhenoType(self) :
         pass
 ```
-2. write your ShowBestChromosome() method inside Report.py in Genetic folder :
+2. write your ShowBestChromosome() method inside Report.py in [Genetic](/Genetic/) directory :
 ```python
     # Shows best chromosome that has been found
     def ShowBestChromosome(self) :
@@ -190,7 +190,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Thanks
   Unlimited thanks to God   
-  Special thanks to my master [Dr. Siamak Sarmady](https://sarmady.com/siamak/) 
+  Special thanks to my master [Dr. Siamak Sarmady](https://sarmady.com/siamak/)   
   hope you enjoy 🤗🌹  
 
 >:blossom:Imam Mahdi(As) declared :
