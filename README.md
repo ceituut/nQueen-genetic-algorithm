@@ -6,7 +6,7 @@ NQueen problem with Genetic Algorithm
 ## The Goal  
 This project aim is to test different strategies for NQueen problem and compare them according to their charts for specified problem. _for example 20Queen_  
 Results can be plot on diagram and can be store on excell file for manually insert chart.   
-__Common man it's just a NQueen problem solver !__     
+_-Common man it's just a NQueen problem solver !_    
 No ! This is not only a simple NQueen problem with Genetic Algorithm. 
 * __Define your own strategy and test it for NQueen problem.__
 * __Changee problem by changing Chromosome class.__ 
@@ -98,6 +98,8 @@ class MyMutation(Mutation) :
         pass
 ```
 
+  
+    
 #### How can i define my own strategy ?
 After creating operations , in root folder inside main.py make object from your operation class. 
 * __Create your parent selection object :__ 
@@ -127,6 +129,8 @@ for example :
 swapMutation = Mutation.Swap(0.9)
 ```
 
+
+  
 #### How can i test it ?
 in root folder inside main.py create your own strategy like this and pass related parameters :  
 ```python
@@ -145,6 +149,7 @@ RunStrategy(Strategy1,numberOfRuns)
 __Attention :__ let numberOfRuns parameter have its own value and dont pass a number; because all strategies will test with same number of runs. 
 
 
+  
 #### How can i change problem ?
 You are able to change chromosome class and test your own permutation problem without any headache.
 1. You should have this properties and methodes inside your own Chromosome class in Genetic folder :
@@ -181,14 +186,20 @@ class Chromosome :
         pass
 ```
 
+
+  
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.  
 
-## Thanks
-Unlimited thanks to God
-Special thanks to my master [Dr. Siamak Sarmady](https://sarmady.com/siamak/)
-hope you enjoy 🤗🌹
 
+  
+## Thanks
+Unlimited thanks to God  
+Special thanks to my master [Dr. Siamak Sarmady](https://sarmady.com/siamak/)  
+hope you enjoy 🤗🌹  
+
+
+  
 >:blossom:Imam Mahdi(As) declared :
 > we are aware of all your news 
 > and none of your actions is hidden from us.
