@@ -27,7 +27,7 @@ Steps to test your own strategy :
 4. Run strategy and test it
 
 ### How can i create my own operations ?
-in Operations folder :
+in [Operations](/Operations/) directory :
 * Create Parent Selection Operation : You are able to create your own parent selection class inside ParentSelection.py   
 Your class should inherit form ParentSelection class and implement select() method.  
 ```python
@@ -133,7 +133,7 @@ for example :
 swapMutation = Mutation.Swap(0.9)
 ```
 * __Create your own strategy :__  
-in root folder inside main.py create your own strategy like this and pass related parameters :  
+inside [main.py](/main.py) create your own strategy like this and pass related parameters :  
 ```python
 myStrategyObject = Strategy(MyParentSelectionObject,MyRecombinationObject,MyMutationObject)
 myStrategyObject.name = "my strategy name"
