@@ -102,21 +102,17 @@ class MyMutation(Mutation) :
 ```
 
 ### 🔷🔷 How can i define my own strategy ?
-After creating operations , inside [main.py](/main.py) make object from your operation class. 
+After creating operations , inside [main.py](/main.py) make object from your operation class just like example. 
 * __Create your parent selection object :__ 
 ```python
 myParentSelectionObject = ParentSelection.MyParentSelection()  
-```    
-```python
 # for example
 RouletWheelSelector = ParentSelection.Rouletwheel(0.6)  
-```
+```  
 
 * __Create your recombination object :__
 ```python
 myRecombinationObject = Recombination.MyRecombination()  
-```
-```python
 # for example
 randomPointCrossOver = Recombination.RandomPointCrossOver(0.98)
 ```
@@ -124,12 +120,10 @@ randomPointCrossOver = Recombination.RandomPointCrossOver(0.98)
 * __Create your mutation object :__
 ```python
 myMutationObject = Mutation.MyMutation()
-```
-```python
 # for example
 swapMutation = Mutation.Swap(0.9)
 ```
-After all , create your own strategy like this and pass related parameters :  
+Finally , create your own strategy like this and pass related parameters :  
 ```python
 myStrategyObject = Strategy(MyParentSelectionObject,MyRecombinationObject,MyMutationObject)
 myStrategyObject.name = "my strategy name"
