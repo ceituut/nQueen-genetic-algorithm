@@ -9,7 +9,7 @@ Results can be plot on diagram and can be store on excell file for manually inse
 _-Common man it's just a NQueen problem solver !_    
 No ! This is not only a simple NQueen problem with Genetic Algorithm. 
 * __Define your own strategy and test it for NQueen problem.__
-* __Changee problem by changing Chromosome class.__ 
+* __Change problem by changing Chromosome class.__ 
 
 ## Before Usage 
 I used XlsxWriter module in this project.  
@@ -28,8 +28,7 @@ Steps to test your own strategy :
 
 ### 🔷🔷 How can i create my own operations ?
 in [Operations](/Operations/) directory :
-* __Create Parent Selection Operation :__ You are able to create your own parent selection class inside [ParentSelection.py](/Operations/ParentSelection.py)   
-Your class should inherit form ParentSelection class and implement select() method.  
+* __Create Parent Selection Operation :__ You are able to create your own parent selection class inside [ParentSelection.py](/Operations/ParentSelection.py). Your class should inherit form ParentSelection class and implement select() method.  
 ```python
 class ParentSelection(abc.ABC) :
     # Initialization
@@ -49,8 +48,7 @@ class MyParentSelection(ParentSelection) :
         pass
 ```
 
-* __Create Recombination Operation :__ You are able to create your own Recombination class inside [Recombination.py](/Operations/Recombination.py)
-Your class should inherit form Recombination class and implement CanRecombinate() and RunRecombination() methodes.
+* __Create Recombination Operation :__ You are able to create your own Recombination class inside [Recombination.py](/Operations/Recombination.py). Your class should inherit form Recombination class and implement CanRecombinate() and RunRecombination() methodes.
 ```python
 class Recombination(abc.ABC) :
     # Initialization
@@ -76,8 +74,7 @@ class MyRecombination(Recombination) :
         pass
 ```
 
-* __Create Mutation Operation :__ You are able to create your own Mutaion class inside [Mutation.py](/Operations/Mutation.py)
-Your class should inherit form Mutation class and implement CanMutate() and RunMutation() methodes.
+* __Create Mutation Operation :__ You are able to create your own Mutaion class inside [Mutation.py](/Operations/Mutation.py).Your class should inherit form Mutation class and implement CanMutate() and RunMutation() methodes.
 ```python
 class Mutation(abc.ABC) :
     # Initialization
