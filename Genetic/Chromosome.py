@@ -42,6 +42,17 @@ class Chromosome :
         for colIndex in range(length) :
             Chromosome.tempChessBoard[self.gensList[colIndex]][colIndex] = 1
 
+    # Shows phenotype of chromosome 
+    def ShowPhenotype(self) :
+        self.GenotypeToPhenoType()
+        for rowIndex in range(Chromosome.length) :
+            for colIndex in range(Chromosome.length) :
+                if Chromosome.tempChessBoard[rowIndex][colIndex] :
+                    print("Q " , end="")
+                else :
+                    print("# " , end="")
+            print("  ")
+
     # Counts diagonal collisions 
     def DiagonalCollisions(self,ChessBoard) :
         length = Chromosome.length

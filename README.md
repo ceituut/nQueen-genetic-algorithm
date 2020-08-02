@@ -9,7 +9,7 @@ Results can be plot on diagram and can be store on excell file for manually inse
 _-Common man it's just a NQueen problem solver !_    
 No ! This is not only a simple NQueen problem with Genetic Algorithm. 
 * __Define your own strategy and test it for NQueen problem.__
-* __Change problem by changing Chromosome class.__ 
+* __Change problem and test different strategies on it.__ 
 
 ## Before Usage 
 I used XlsxWriter module in this project.  
@@ -141,7 +141,7 @@ __Attention :__ let numberOfRuns parameter have its own value and dont pass a nu
  
 ### 🔷🔷 How can i change problem ?
 You are able to change chromosome class and test your own permutation problem without any headache.
-1. __Create your own Chromosome :__ You should have this properties and methodes inside your own Chromosome class in [Genetic](/Genetic/) directory :
+__Just Create your own Chromosome :__ You should have this properties and methodes inside your own Chromosome class in [Genetic](/Genetic/) directory :
 ```python
 class Chromosome :
     # Your length of Chromosome 
@@ -162,16 +162,14 @@ class Chromosome :
     def EvaluateFitness(self) :
         pass
     
-    # It converts Genotype to Phenotype
+    # It converts Genotype to Phenotype /////////////////
     # To use it for ShowBestChromosome() method in Report.py
     # and/or to use for fitness calculations
     def GenotypeToPhenoType(self) :
         pass
-```
-2. __Write your own function for printing chromosome :__ write your ShowBestChromosome() method inside Report.py in [Genetic](/Genetic/) directory :
-```python
-    # Shows best chromosome that has been found
-    def ShowBestChromosome(self) :
+
+    # It can be used for showing phenotype 
+    def ShowPhenotype(self) :
         pass
 ```
  

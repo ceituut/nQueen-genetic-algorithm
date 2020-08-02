@@ -66,7 +66,7 @@ class Report :
 
     # Write reports to excell file and shows some result
     def WriteReport(self,strategy) :
-        self.ShowBestChromosome()
+        self.bestChromosome.ShowPhenotype()
         print(strategy.name)
         print(strategy.description)
         print("Best Fitness List of all generations : ")
@@ -93,17 +93,6 @@ class Report :
         if listLength < ExpectedLength :
             for columnIndex in range(listLength,ExpectedLength) :
                 List.append(0)
-
-    # Shows best chromosome that has been found
-    def ShowBestChromosome(self) :
-        self.bestChromosome.GenotypeToPhenoType()
-        for rowIndex in range(Chromosome.length) :
-            for colIndex in range(Chromosome.length) :
-                if Chromosome.tempChessBoard[rowIndex][colIndex] :
-                    print("Q " , end="")
-                else :
-                    print("# " , end="")
-            print("  ")
 
     # Clears temporary report of current round
     def ClearReport(self) :
