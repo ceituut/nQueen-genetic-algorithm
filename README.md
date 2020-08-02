@@ -140,7 +140,7 @@ RunStrategy(Strategy1,numberOfRuns)
 __Attention :__ let numberOfRuns parameter have its own value and dont pass a number; because all strategies will test with same number of runs. 
  
 ### 🔷🔷 How can i change problem ?
-You are able to change chromosome class and test your own permutation problem without any headache.
+You are able to change chromosome class and test your own permutation problem without any headache.  
 __Just Create your own Chromosome :__ You should have this properties and methodes inside your own Chromosome class in [Genetic](/Genetic/) directory :
 ```python
 class Chromosome :
