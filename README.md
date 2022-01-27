@@ -13,7 +13,7 @@ No ! This is not only a simple NQueen problem with Genetic Algorithm.
 
 ## Before Usage 
 I used XlsxWriter module in this project.  
-[XlsxWriter](xlsxwriter.readthedocs.io) is a Python module that can be used to write text, numbers, formulas and hyperlinks to multiple worksheets in an Excel 2007+ XLSX file.
+[XlsxWriter](https://xlsxwriter.readthedocs.io) is a Python module that can be used to write text, numbers, formulas and hyperlinks to multiple worksheets in an Excel 2007+ XLSX file.
 Please install it by this command :   
 ```bash
 pip install XlsxWriter
